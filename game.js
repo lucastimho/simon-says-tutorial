@@ -14,6 +14,6 @@ $(".btn").click(function() {
     userClickedPattern.push(userChosenColour);
 })
 function playSound(name) {
-    var audio = new Audio(`./sounds/${name}`);
+    var audio = new Audio(`./sounds/${name}.mp3`);
     audio.play();
 }
