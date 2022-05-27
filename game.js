@@ -18,7 +18,5 @@ function playSound(name) {
     audio.play();
 }
 function animatePress(currentColour) {
-    $(".btn").click(function() {
-        this.addClass(".pressed");
-    })
+    $(`#${currentColour}`).addClass(".pressed");
 }
