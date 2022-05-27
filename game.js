@@ -8,6 +8,7 @@ function nextSequence() {
     gamePattern.push(randomChosenColour);
     $(`#${randomChosenColour}`).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
     playSound(randomChosenColour);
+    level++;
 }
 $(".btn").click(function() {
     var userChosenColour = this.id;
