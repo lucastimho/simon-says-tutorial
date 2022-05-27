@@ -28,3 +28,4 @@ function animatePress(currentColour) {
 }
 $("#level-title").addText(`Level ${level}`);
 function checkAnswer() {};
+$("#level-title").addText("Game Over, Press any Key to Restart")
