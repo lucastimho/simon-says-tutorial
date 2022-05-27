@@ -26,3 +26,4 @@ function animatePress(currentColour) {
         $(`#${currentColour}`).removeClass("pressed");
     }, 100);
 }
+$("#level-title").addText(`Level ${level}`);
