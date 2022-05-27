@@ -27,3 +27,4 @@ function animatePress(currentColour) {
     }, 100);
 }
 $("#level-title").addText(`Level ${level}`);
+function checkAnswer() {};
