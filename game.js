@@ -10,6 +10,12 @@ function nextSequence() {
     $(`#${randomChosenColour}`).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
     playSound(randomChosenColour);
 }
+function playEntireSequence() {
+    for (let i = 0; i < gamePattern.length; i++) {
+        var audio = Audio(`./sounds/${gamePattern[i]}.mp3`);
+        setTimeout(audio.play(), 1000);
+    }
+}
 $(".btn").click(function() {
     var userChosenColour = this.id;
     playSound(userChosenColour);
