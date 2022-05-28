@@ -38,6 +38,7 @@ function checkAnswer(currentLevel) {
     } else {
         var audio = new Audio("./sounds/wrong.mp3");
         audio.play();
+        $("body").addClass("game-over");
         gamePattern = [];
         userClickedPattern = []
         $("h1").text("Game Over, Press any Key to Restart");
