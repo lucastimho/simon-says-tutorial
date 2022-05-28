@@ -2,6 +2,7 @@ var buttonColours = ["red", "blue", "green", "yellow"];
 var gamePattern = [];
 var userClickedPattern = [];
 var level = 0;
+var started = false;
 function nextSequence() {
     var randomNumber = Math.floor(Math.random() * 4);
     var randomChosenColour = buttonColours[randomNumber];
@@ -27,8 +28,11 @@ function animatePress(currentColour) {
     }, 100);
 }
 $(document).keypress(function() {
-    nextSequence();
-    $("h1").text(`Level ${level}`);
+    if (!started) {
+        nextSequence();
+        $("h1").text(`Level ${level}`);
+        started = true;
+    }
 })
 function checkAnswer(currentLevel) {
     if (userClickedPattern.length > 0 && userClickedPattern[0] === gamePattern[gamePattern.length - 1]) {
@@ -43,6 +47,7 @@ function checkAnswer(currentLevel) {
         gamePattern = [];
         userClickedPattern = []
         $("h1").text("Game Over, Press any Key to Restart");
+        started = false;
     }
 }
 function startOver() {
