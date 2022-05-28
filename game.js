@@ -40,6 +40,6 @@ function checkAnswer(currentLevel) {
         console.log("wrong");
         gamePattern = [];
         userClickedPattern = []
-        $("h1").text("Press any key to play again.");
+        $("h1").text("Game Over, Press any Key to Restart");
     }
 }
