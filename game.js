@@ -26,6 +26,7 @@ function animatePress(currentColour) {
         $(`#${currentColour}`).removeClass("pressed");
     }, 100);
 }
-$("#level-title").addText(`Level ${level}`);
-function checkAnswer() {};
-$("#level-title").addText("Game Over, Press any Key to Restart")
+$(document).keypress(function() {
+    nextSequence();
+    $("h1").text(`Level ${level}`);
+})
