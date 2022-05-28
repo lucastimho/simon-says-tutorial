@@ -32,12 +32,12 @@ $(document).keypress(function() {
 })
 function checkAnswer(currentLevel) {
     if (userClickedPattern.length > 0 && userClickedPattern[0] === gamePattern[gamePattern.length - 1]) {
-      console.log("success");
       userClickedPattern = []
       currentLevel++;
       setTimeout(nextSequence(), 2000);
     } else {
-        console.log("wrong");
+        var audio = new Audio("./sounds/wrong.mp3");
+        audio.play();
         gamePattern = [];
         userClickedPattern = []
         $("h1").text("Game Over, Press any Key to Restart");
