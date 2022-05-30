@@ -13,8 +13,8 @@ var i = 0;
 function playEntireSequence() {
   setTimeout(function () {
     var audio = new Audio(`./sounds/${gamePattern[i]}.mp3`);
-    setTimeout(audio.play(), 2000);
     $(`#${gamePattern[i]}`).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+    audio.play();
     i++;
     if (i < gamePattern.length) {
       playEntireSequence();
