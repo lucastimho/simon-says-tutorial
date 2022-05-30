@@ -9,12 +9,17 @@ function nextSequence() {
   gamePattern.push(randomChosenColour);
   playEntireSequence();
 }
+var i = 0;
 function playEntireSequence() {
-  for (let i = 0; i < gamePattern.length; i++) {
+  setTimeout(function () {
     var audio = new Audio(`./sounds/${gamePattern[i]}.mp3`);
-    setTimeout(audio.play(), 1000);
+    setTimeout(audio.play(), 2000);
     $(`#${gamePattern[i]}`).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
-  }
+    i++;
+    if (i < gamePattern.length) {
+      playEntireSequence();
+    }
+  }, 2000);
 }
 $(".btn").click(function () {
   var userChosenColour = this.id;
