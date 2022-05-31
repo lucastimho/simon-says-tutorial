@@ -46,21 +46,22 @@ $(document).keypress(function () {
   }
 });
 function checkAnswer(currentLevel) {
-  if (userClickedPattern.length > 0 && userClickedPattern[0] === gamePattern[gamePattern.length - 1]) {
-    userClickedPattern = [];
-    currentLevel++;
-    setTimeout(nextSequence(), 2000);
-  } else {
-    var audio = new Audio("./sounds/wrong.mp3");
-    audio.play();
-    $("body").addClass("game-over");
-    setTimeout(function () {
-      $("body").removeClass("game-over");
-    }, 200);
-    gamePattern = [];
-    userClickedPattern = [];
-    $("h1").text("Game Over, Press any Key to Restart");
-    startOver();
+  if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
+    if (userClickedPattern.length === gamePattern.length){
+        setTimeout(function () {
+          nextSequence();
+        }, 1000);
+      }
+    } else {
+      playSound("wrong");
+      $("body").addClass("game-over");
+      $("#level-title").text("Game Over, Press Any Key to Restart");
+
+      setTimeout(function () {
+        $("body").removeClass("game-over");
+      }, 200);
+
+      startOver();
   }
 }
 function startOver() {
